@@ -78,7 +78,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="256dp"
                     android:padding="10dp"
-                    app:egBarWidth="20dp"
+
+                    app:egBarWidth="50dp"
+                    app:egBarMargin="30dp"
+
+                    app:egLegendTextSize="10dp"
                     app:egFixedBarWidth="true"
                     app:egLegendHeight="40dp" >
 

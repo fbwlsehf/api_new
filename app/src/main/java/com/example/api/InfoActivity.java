@@ -70,7 +70,6 @@ public class InfoActivity extends Activity implements Serializable {
                 "\n트랜스지방(g)(1회제공량당): " + nutData.getNutcont9() +"\n";
         nut_info.setText(temp);
 
-
         new Thread(new Runnable() {
             String more_data;
             @Override
@@ -87,40 +86,7 @@ public class InfoActivity extends Activity implements Serializable {
             }
         }).start();
 
-
-        StackedBarChart mStackedBarChart = (StackedBarChart) findViewById(R.id.stackedbarchart);
-
-        StackedBarModel s1 = new StackedBarModel("12.4");
-
-        s1.addBar(new BarModel(2.3f, 0xFF63CBB0));
-        s1.addBar(new BarModel(2.3f, 0xFF56B7F1));
-        s1.addBar(new BarModel(2.3f, 0xFFCDA67F));
-
-        StackedBarModel s2 = new StackedBarModel("13.4");
-        s2.addBar(new BarModel(1.1f, 0xFF63CBB0));
-        s2.addBar(new BarModel(2.7f, 0xFF56B7F1));
-        s2.addBar(new BarModel(0.7f, 0xFFCDA67F));
-
-        StackedBarModel s3 = new StackedBarModel("14.4");
-
-        s3.addBar(new BarModel(2.3f, 0xFF63CBB0));
-        s3.addBar(new BarModel(2.f, 0xFF56B7F1));
-        s3.addBar(new BarModel(3.3f, 0xFFCDA67F));
-
-        StackedBarModel s4 = new StackedBarModel("15.4");
-        s4.addBar(new BarModel(1.f, 0xFF63CBB0));
-        s4.addBar(new BarModel(4.2f, 0xFF56B7F1));
-        s4.addBar(new BarModel(2.1f, 0xFFCDA67F));
-
-        mStackedBarChart.addBar(s1);
-        mStackedBarChart.addBar(s2);
-        mStackedBarChart.addBar(s3);
-        mStackedBarChart.addBar(s4);
-
-        mStackedBarChart.startAnimation();
-
-
-
+        chart_make();
 
         }
 
@@ -235,6 +201,35 @@ public class InfoActivity extends Activity implements Serializable {
         }
 
         return buffer.toString();
+
+    }
+
+    void chart_make(){
+
+
+        StackedBarChart mStackedBarChart = (StackedBarChart) findViewById(R.id.stackedbarchart);
+        ArrayList<StackedBarModel> bar_list = new ArrayList<>();
+
+//        열량(kcal) 탄수화물(g) 단백질(g) 지방(g) 당류(g) 나트륨(mg) 콜레스테롤(mg) 포화지방산(g) 트랜스지방(g)
+
+        StackedBarModel s1 = new StackedBarModel("열량(kcal)");
+        StackedBarModel s2 = new StackedBarModel("탄수화물(g)");
+        StackedBarModel s3 = new StackedBarModel("단백질(g)");
+        StackedBarModel s4 = new StackedBarModel("지방(g)");
+        StackedBarModel s5 = new StackedBarModel("당류(g)");
+        StackedBarModel s6 = new StackedBarModel("나트륨(mg)");
+        StackedBarModel s7 = new StackedBarModel("콜레스테롤");
+        StackedBarModel s8 = new StackedBarModel("포화지방산");
+        StackedBarModel s9 = new StackedBarModel("트랜스지방");
+
+        bar_list.add(s1);bar_list.add(s2);bar_list.add(s3);bar_list.add(s4);bar_list.add(s5);bar_list.add(s6);bar_list.add(s7);bar_list.add(s8);bar_list.add(s9);
+
+        for(int i=0;i<bar_list.size();i++){
+            bar_list.get(i).addBar(new BarModel((i*10+5), 0xFF63CBB0));
+            mStackedBarChart.addBar(bar_list.get(i));
+        }
+
+        mStackedBarChart.startAnimation();
 
     }
 
