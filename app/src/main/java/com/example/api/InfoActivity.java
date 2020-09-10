@@ -36,6 +36,7 @@ public class InfoActivity extends Activity implements Serializable {
     String list_num="2";
 
     nutData nutData = new nutData();
+    ArrayList<Check_nut> nut_list;
 
 
     @Override
@@ -86,6 +87,8 @@ public class InfoActivity extends Activity implements Serializable {
             }
         }).start();
 
+        nut_list= new ArrayList<>();  // 영양성분 정보가 있는가 표시,영양성분 값 int 저장
+        set_data();
         chart_make();
 
         }
@@ -204,20 +207,32 @@ public class InfoActivity extends Activity implements Serializable {
 
     }
 
+
+    void set_data(){
+
+        if(nutData.getNutcont1().equals("null")){ nut_list.add(new Check_nut(false,0));} else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont1())));}
+        if(nutData.getNutcont2().equals("null")){ nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont2())));}
+        if(nutData.getNutcont3().equals("null")){ nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont3())));}
+        if(nutData.getNutcont4().equals("null")){nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont4())));}
+        if(nutData.getNutcont5().equals("null")){nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont5())));}
+        if(nutData.getNutcont6().equals("null")){ nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont6())));}
+        if(nutData.getNutcont7().equals("null")){nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont7())));}
+        if(nutData.getNutcont8().equals("null")){ nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont8())));}
+        if(nutData.getNutcont9() .equals("null")){nut_list.add(new Check_nut(false,0));}else{nut_list.add(new Check_nut(Integer.parseInt(nutData.getNutcont9())));}
+    } // 영양성분을 ArrayList로 저장--> 반복문 쓰기 위함  // 정리가 필요할듯
+
     void chart_make(){
-
-
         StackedBarChart mStackedBarChart = (StackedBarChart) findViewById(R.id.stackedbarchart);
         ArrayList<StackedBarModel> bar_list = new ArrayList<>();
 
 //        열량(kcal) 탄수화물(g) 단백질(g) 지방(g) 당류(g) 나트륨(mg) 콜레스테롤(mg) 포화지방산(g) 트랜스지방(g)
 
-        StackedBarModel s1 = new StackedBarModel("열량(kcal)");
-        StackedBarModel s2 = new StackedBarModel("탄수화물(g)");
-        StackedBarModel s3 = new StackedBarModel("단백질(g)");
-        StackedBarModel s4 = new StackedBarModel("지방(g)");
-        StackedBarModel s5 = new StackedBarModel("당류(g)");
-        StackedBarModel s6 = new StackedBarModel("나트륨(mg)");
+        StackedBarModel s1 = new StackedBarModel("열량");
+        StackedBarModel s2 = new StackedBarModel("탄수화물");
+        StackedBarModel s3 = new StackedBarModel("단백질");
+        StackedBarModel s4 = new StackedBarModel("지방");
+        StackedBarModel s5 = new StackedBarModel("당류");
+        StackedBarModel s6 = new StackedBarModel("나트륨");
         StackedBarModel s7 = new StackedBarModel("콜레스테롤");
         StackedBarModel s8 = new StackedBarModel("포화지방산");
         StackedBarModel s9 = new StackedBarModel("트랜스지방");
@@ -225,7 +240,11 @@ public class InfoActivity extends Activity implements Serializable {
         bar_list.add(s1);bar_list.add(s2);bar_list.add(s3);bar_list.add(s4);bar_list.add(s5);bar_list.add(s6);bar_list.add(s7);bar_list.add(s8);bar_list.add(s9);
 
         for(int i=0;i<bar_list.size();i++){
-            bar_list.get(i).addBar(new BarModel((i*10+5), 0xFF63CBB0));
+            if(nut_list.get(i).getIsdata()){  //영양성분이 null 아니면
+                bar_list.get(i).addBar(new BarModel((nut_list.get(i).getData()),0xFF63CBB0));}
+            else{
+                bar_list.get(i).addBar(new BarModel(0, 0xFF63CBB0)); bar_list.get(i).setLegendLabel("정보없음");}
+
             mStackedBarChart.addBar(bar_list.get(i));
         }
 
