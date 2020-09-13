@@ -29,6 +29,8 @@
 
 
         android:text="Record"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:onClick="recordListener"
+        />
 
 </RelativeLayout>

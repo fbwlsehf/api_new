@@ -29,5 +29,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void recordListener(View target) {
+        Intent intent = new Intent(getApplicationContext(),CalendarActivity.class);
+        startActivity(intent);
+    }
+
 
 }
