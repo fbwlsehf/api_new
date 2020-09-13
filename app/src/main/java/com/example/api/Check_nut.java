@@ -2,14 +2,14 @@ package com.example.api;
 
 public class Check_nut {
     private Boolean isdata =true;
-    private Integer data = 0;
+    private float data = 0f;
 
-    public Check_nut(Boolean isdata, Integer data) {
+    public Check_nut(Boolean isdata, float data) {
         this.isdata = isdata;
         this.data = data;
     }
 
-    public Check_nut(Integer data) {
+    public Check_nut(float data) {
         this.data = data;
     }
 
@@ -21,11 +21,11 @@ public class Check_nut {
         this.isdata = isdata;
     }
 
-    public Integer getData() {
+    public float getData() {
         return data;
     }
 
-    public void setData(Integer data) {
+    public void setData(float data) {
         this.data = data;
     }
 }
