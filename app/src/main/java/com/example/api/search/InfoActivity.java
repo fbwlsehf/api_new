@@ -1,4 +1,4 @@
-package com.example.api;
+package com.example.api.search;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+
+import com.example.api.R;
 
 import org.eazegraph.lib.charts.StackedBarChart;
 import org.eazegraph.lib.models.BarModel;
@@ -35,7 +37,7 @@ public class InfoActivity extends Activity implements Serializable {
     String key="1332c45fd60e4b9ca83c";
     String list_num="2";
 
-    nutData nutData = new nutData();
+    com.example.api.search.nutData nutData = new nutData();
     ArrayList<Check_nut> nut_list;
     float[] rda = {2600,324,55,54,100,2000,300,15,2.2f}; // 영양성분 권장섭취량
     // 열량(kcal) 탄수화물(g) 단백질(g) 지방(g) 당류(g) 나트륨(mg) 콜레스테롤(mg) 포화지방산(g) 트랜스지방(g) // 트랜스지방은 부정확
@@ -245,7 +247,17 @@ public class InfoActivity extends Activity implements Serializable {
 
         for(int i=0;i<bar_list.size();i++){
             if(nut_list.get(i).getIsdata()){  //영양성분이 null 아니면
-                bar_list.get(i).addBar(new BarModel((nut_list.get(i).getData()),0xFF63CBB0));}
+
+                if(rda[i]-(nut_list.get(i).getData()) >0){
+                    bar_list.get(i).addBar(new BarModel((nut_list.get(i).getData()),0xFF63CBB0));//현재 섭취량
+                    bar_list.get(i).addBar(new BarModel(rda[i]-(nut_list.get(i).getData()),0xFF1E90FF));//남은 기준 섭취량
+                }
+                else{
+                    bar_list.get(i).addBar(new BarModel((nut_list.get(i).getData()),0xFFCD5C5C));//현재 섭취량
+                }
+
+
+            }
             else{
                 bar_list.get(i).addBar(new BarModel(0, 0xFF63CBB0)); bar_list.get(i).setLegendLabel("정보없음");}
 

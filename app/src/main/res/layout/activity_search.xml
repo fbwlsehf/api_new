@@ -52,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginRight="15dp"
-        android:text="바코드" />
+        android:text="바코드"
+        android:onClick="barcodeListener"/>
 
 
 </LinearLayout>

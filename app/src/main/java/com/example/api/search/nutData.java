@@ -1,4 +1,4 @@
-package com.example.api;
+package com.example.api.search;
 
 import java.io.Serializable;
 

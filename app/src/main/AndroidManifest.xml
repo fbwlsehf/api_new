@@ -19,9 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity" android:label="SearchActivity" />
-        <activity android:name=".InfoActivity" android:label="InfoActivity" />
+        <activity android:name=".search.SearchActivity" android:label="SearchActivity" />
+        <activity android:name=".search.InfoActivity" android:label="InfoActivity" />
         <activity android:name=".CalendarActivity" android:label="CalendarActivity" />
+        <activity android:name=".search.BarcodeScannerActivity" android:label="BarcordeScannerActivity" />
+
 
 
     </application>

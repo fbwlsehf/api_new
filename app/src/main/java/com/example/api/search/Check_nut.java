@@ -1,4 +1,4 @@
-package com.example.api;
+package com.example.api.search;
 
 public class Check_nut {
     private Boolean isdata =true;

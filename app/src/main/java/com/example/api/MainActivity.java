@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.api.search.SearchActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     Button search;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchListener(View target) {
-        Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
         startActivity(intent);
     }
 
