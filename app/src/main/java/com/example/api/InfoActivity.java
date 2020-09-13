@@ -214,15 +214,15 @@ public class InfoActivity extends Activity implements Serializable {
 
     void set_data(){
 //double d = Double.parseDouble(String.format("%.3f", 1.4455555));
-        if(nutData.getNutcont1().equals("null")){ nut_list.add(new Check_nut(false,0f));} else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont1())));}
-        if(nutData.getNutcont2().equals("null")){ nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont2())));}
-        if(nutData.getNutcont3().equals("null")){ nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont3())));}
-        if(nutData.getNutcont4().equals("null")){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont4())));}
-        if(nutData.getNutcont5().equals("null")){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont5())));}
-        if(nutData.getNutcont6().equals("null")){ nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont6())));}
-        if(nutData.getNutcont7().equals("null")){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont7())));}
-        if(nutData.getNutcont8().equals("null")){ nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont8())));}
-        if(nutData.getNutcont9().equals("null")){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont9())));}
+        if(nutData.getNutcont1()==null){ nut_list.add(new Check_nut(false,0f));} else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont1())));}
+        if(nutData.getNutcont2()==null){ nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont2())));}
+        if(nutData.getNutcont3()==null){ nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont3())));}
+        if(nutData.getNutcont4()==null){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont4())));}
+        if(nutData.getNutcont5()==null){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont5())));}
+        if(nutData.getNutcont6()==null){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont6())));}
+        if(nutData.getNutcont7()==null){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont7())));}
+        if(nutData.getNutcont8()==null){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont8())));}
+        if(nutData.getNutcont9()==null){nut_list.add(new Check_nut(false,0f));}else{nut_list.add(new Check_nut(Float.parseFloat(nutData.getNutcont9())));}
     } // 영양성분을 ArrayList로 저장--> 반복문 쓰기 위함  // 정리가 필요할듯
 
     void chart_make(){
